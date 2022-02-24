@@ -1,6 +1,8 @@
-import { hello } from "../../app.js";
 import httpMocks from "node-mocks-http";
+
+import { hello } from "../../app.js";
 import { heroController } from "../../controllers/hero.controller";
+
 let req, res;
 beforeEach(() => {
   // Create a mock request object

@@ -1,5 +1,6 @@
-import { hello } from "../../app.js";
 import httpMocks from "node-mocks-http";
+
+import { hello } from "../../app.js";
 
 let req, res;
 beforeEach(() => {

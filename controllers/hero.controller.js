@@ -1,3 +1,3 @@
 export const heroController = {
-  createHero: (req, res) => {},
+  createHero : (req, res) => {},
 };

@@ -1,9 +1,7 @@
-export function sum(a, b) {
-  return a + b;
-}
+export function sum(a, b) { return a + b; }
 
 export function dugeon(hero) {
-  const { strength, iq } = hero;
+  const {strength, iq} = hero;
   if (strength >= 50 && iq >= 90) {
     return `${hero.hero}⚔️💰💍👑`;
   } else if (strength >= 50) {

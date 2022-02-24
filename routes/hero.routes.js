@@ -1,5 +1,7 @@
 import express from "express";
-import { heroController } from "../controllers/hero.controller";
+
+import {heroController} from "../controllers/hero.controller";
+
 const router = express.Router();
 
 router.post("/", heroController.createHero);

@@ -4,7 +4,7 @@ const app = express();
 
 export const hello = (req, res) => {
   res.json({
-    message : "Hello World",
+    message: "Hello World",
   });
 };
 

@@ -1,7 +1,7 @@
 import httpMocks from "node-mocks-http";
 
-import {hello} from "../../app.js";
-import {heroController} from "../../controllers/hero.controller";
+import { hello } from "../../app.js";
+import { heroController } from "../../controllers/hero.controller";
 
 let req, res;
 beforeEach(() => {
@@ -11,6 +11,7 @@ beforeEach(() => {
 });
 
 describe("hero controller", () => {
-  it("should have createHero function",
-     () => { expect(typeof heroController.createHero).toBe("function"); });
+  it("should have createHero function", () => {
+    expect(typeof heroController.createHero).toBe("function");
+  });
 });

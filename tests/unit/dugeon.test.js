@@ -1,4 +1,5 @@
 import { dugeon } from "../../dugeon.js";
+
 test("hero passesd Trail 1 & Trail 2", () => {
   expect(
     dugeon({
@@ -8,6 +9,7 @@ test("hero passesd Trail 1 & Trail 2", () => {
     })
   ).toBe("🦸‍♂️⚔️💰💍👑");
 });
+
 test("hero passesd Trail 1 & fails Trail 2", () => {
   expect(
     dugeon({
@@ -18,7 +20,7 @@ test("hero passesd Trail 1 & fails Trail 2", () => {
   ).toBe("👨‍🦱⚔️🏥");
 });
 
-test("hero fails Trail 1 & passesd Trail 2", () => {
+test("hero fail Trail 1 & pass Trail 2", () => {
   expect(
     dugeon({
       hero: "🧑",
@@ -28,7 +30,7 @@ test("hero fails Trail 1 & passesd Trail 2", () => {
   ).toBe("🧑🐍💰💍👑");
 });
 
-test("hero fails Trail 1 & fails Trail 2", () => {
+test("hero fail Trail 1 & pass Trail 2", () => {
   expect(
     dugeon({
       hero: "👨",

@@ -1,7 +1,6 @@
 import httpMocks from "node-mocks-http";
-import { hello } from "../../app.js";
 
-import { hello } from "../../app.js";
+import { hello, hello } from "../../app.js";
 
 let req, res;
 
@@ -23,7 +22,9 @@ describe("Hello controller", () => {
 
   it("should return json body is response", async () => {
     await hello(req, res);
-    expect(res._getJSONData()).toStrictEqual({ message: "🙋‍♂️, 🌏!!!" });
+    expect(res._getJSONData()).toStrictEqual({
+      message: "🙋‍♂️, 🌏!!!",
+    });
   });
 });
 

@@ -1,10 +1,8 @@
 import express from "express";
-
-import { heroController } from "../controllers/hero.controller";
-
+import { heroContoller } from "../controllers/hero.controller.js";
 const router = express.Router();
 
-router.post("/", heroController.createHero);
-router.get("/", heroController.getAllHeroes);
+router.post("/", heroContoller.createHero);
+router.get("/", heroContoller.getHeroes);
 
 export default router;

@@ -1,24 +1,27 @@
 {
-  "name": "ttd-jest",
+  "name": "TDD-jest",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js ",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll",
     "start": "node server.js",
-    "dev": "nodemon --watch server.js --exec node server.js"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "jest": "^27.5.1",
-    "node-mocks-http": "^1.11.0",
     "nodemon": "^2.0.15"
   },
   "dependencies": {
-    "express": "^4.17.3"
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.3",
+    "node-mocks-http": "^1.11.0",
+    "supertest": "^6.2.2"
   }
 }

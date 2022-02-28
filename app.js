@@ -1,5 +1,6 @@
 import express from "express";
-import { connect } from "./mongodb/mongodb.connect.js";
+
+import {connect} from "./mongodb/mongodb.connect.js";
 import heroRoutes from "./routes/hero.routes.js";
 
 connect();
@@ -8,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 export function hello(request, response) {
-  response.json({ message: "🙋‍♂️, 🌏!!!" });
+  response.json({message : "🙋‍♂️, 🌏!!!"});
 }
 // export const hello = "nice";
 app.get("/", hello);

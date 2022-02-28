@@ -3,8 +3,10 @@ import httpMocks from "node-mocks-http";
 import { heroContoller } from "../../controllers/hero.controller.js";
 import { HeroModel } from "../../model/hero.model.js";
 import newHero from "../mock-data/new-hero.json";
+import allHeros from "../mock-data/all-heros.json";
 
 HeroModel.create = jest.fn(); // tracker chip
+HeroModel.find = jest.fn();
 let req, res;
 
 beforeEach(() => {
@@ -38,20 +40,22 @@ describe("Hero controller", () => {
     await heroContoller.createHero(req, res);
     expect(res._getJSONData()).toStrictEqual(newHero);
   });
+});
 
+describe("Hero controller get Heroes", () => {
   it("should have getHeroes function", () => {
     expect(typeof heroContoller.getHeroes).toBe("function");
   });
   it("should call HeroModel.find", async () => {
-    HeroModel.find = jest.fn().mockReturnValue(newHero);
     await heroContoller.getHeroes(req, res);
     expect(HeroModel.find).toBeCalled();
   });
   it("should return 200 response code", async () => {
-    HeroModel.find = jest.fn().mockReturnValue(newHero);
+    HeroModel.find.mockReturnValue(allHeros);
     await heroContoller.getHeroes(req, res);
     expect(res.statusCode).toBe(200);
     expect(res._isEndCalled()).toBeTruthy();
+    expect(res._getJSONData()).toStrictEqual(allHeros);
   });
 });
 

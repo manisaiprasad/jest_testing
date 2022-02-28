@@ -1,8 +1,8 @@
 import jest from "jest-mock";
 import httpMocks from "node-mocks-http";
 
-import {heroContoller} from "../../controllers/hero.controller.js";
-import {HeroModel} from "../../model/hero.model.js";
+import { heroContoller } from "../../controllers/hero.controller.js";
+import { HeroModel } from "../../model/hero.model.js";
 import newHero from "../mock-data/new-hero.json";
 
 HeroModel.create = jest.fn(); // tracker chip
@@ -14,10 +14,13 @@ beforeEach(() => {
 });
 
 describe("Hero controller", () => {
-  beforeEach(() => { req.body = newHero; });
+  beforeEach(() => {
+    req.body = newHero;
+  });
 
-  it("should have createTodo function",
-     () => { expect(typeof heroContoller.createHero).toBe("function"); });
+  it("should have createTodo function", () => {
+    expect(typeof heroContoller.createHero).toBe("function");
+  });
 
   it("should return 201 response code", async () => {
     await heroContoller.createHero(req, res);
@@ -37,8 +40,9 @@ describe("Hero controller", () => {
     expect(res._getJSONData()).toStrictEqual(newHero);
   });
 
-  it("should have getHeroes function",
-     () => { expect(typeof heroContoller.getHeroes).toBe("function"); });
+  it("should have getHeroes function", () => {
+    expect(typeof heroContoller.getHeroes).toBe("function");
+  });
   it("should call HeroModel.find", async () => {
     HeroModel.find = jest.fn().mockReturnValue(newHero);
     await heroContoller.getHeroes(req, res);

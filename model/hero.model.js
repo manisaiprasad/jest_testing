@@ -1,17 +1,17 @@
 import mongoose from "mongoose";
 
 const HeroSchema = new mongoose.Schema({
-  char : {
-    type : String,
-    required : true,
+  char: {
+    type: String,
+    required: true,
   },
-  strength : {
-    type : Number,
-    required : true,
+  strength: {
+    type: Number,
+    required: true,
   },
-  iq : {
-    type : Number,
-    required : true,
+  iq: {
+    type: Number,
+    required: true,
   },
 });
 

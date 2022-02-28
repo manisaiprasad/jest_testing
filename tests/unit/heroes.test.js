@@ -3,8 +3,8 @@ import httpMocks from "node-mocks-http";
 
 import { heroContoller } from "../../controllers/hero.controller.js";
 import { HeroModel } from "../../model/hero.model.js";
-import newHero from "../mock-data/new-hero.json";
 import allHeros from "../mock-data/all-heros.json";
+import newHero from "../mock-data/new-hero.json";
 
 HeroModel.create = jest.fn(); // tracker chip
 HeroModel.find = jest.fn();

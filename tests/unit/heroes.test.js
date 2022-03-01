@@ -1,12 +1,13 @@
 import jest from "jest-mock";
 import httpMocks from "node-mocks-http";
-import { heroContoller } from "../../controllers/hero.controller.js";
-import { HeroModel } from "../../model/hero.model.js";
+
+import {heroContoller} from "../../controllers/hero.controller.js";
+import {HeroModel} from "../../model/hero.model.js";
 import allHeroes from "../mock-data/all-heroes.json";
 import newHero from "../mock-data/new-hero.json";
 
 HeroModel.create = jest.fn(); // tracker chip
-HeroModel.find = jest.fn(); // tracker chip
+HeroModel.find = jest.fn();   // tracker chip
 HeroModel.findByIdAndDelete = jest.fn();
 HeroModel.findByIdAndUpdate = jest.fn();
 let req, res;
@@ -17,13 +18,10 @@ beforeEach(() => {
 });
 
 describe("Herocontroller.createHero", () => {
-  beforeEach(() => {
-    req.body = newHero;
-  });
+  beforeEach(() => { req.body = newHero; });
 
-  it("should have createHero function", () => {
-    expect(typeof heroContoller.createHero).toBe("function");
-  });
+  it("should have createHero function",
+     () => { expect(typeof heroContoller.createHero).toBe("function"); });
 
   it("should call HeroModel.create", async () => {
     await heroContoller.createHero(req, res);
@@ -44,7 +42,7 @@ describe("Herocontroller.createHero", () => {
   });
 
   it("should call errors", async () => {
-    const errorMessage = { message: "strength property is missing" };
+    const errorMessage = {message : "strength property is missing"};
     const rejectedPromise = Promise.reject(errorMessage);
     HeroModel.create.mockReturnValue(rejectedPromise);
     await heroContoller.createHero(req, res);
@@ -58,9 +56,8 @@ describe("Herocontroller.createHero", () => {
 //   }
 
 describe("Herocontroller.getHeroes", () => {
-  it("should have getHeroes function", () => {
-    expect(typeof heroContoller.getHeroes).toBe("function");
-  });
+  it("should have getHeroes function",
+     () => { expect(typeof heroContoller.getHeroes).toBe("function"); });
 
   it("should call HeroModel.find({})", async () => {
     await heroContoller.getHeroes(req, res);
@@ -73,11 +70,12 @@ describe("Herocontroller.getHeroes", () => {
     expect(res.statusCode).toBe(200);
     expect(res._isEndCalled()).toBeTruthy();
     expect(res._getJSONData()).toStrictEqual(allHeroes);
-    // Value provided by HeroModel(mock) -> Are we getting the same data in response?
+    // Value provided by HeroModel(mock) -> Are we getting the same data in
+    // response?
   });
 
   it("should handle errors", async () => {
-    const errorMessage = { message: "Error in finding" };
+    const errorMessage = {message : "Error in finding"};
     const rejectedPromise = Promise.reject(errorMessage);
     HeroModel.find.mockReturnValue(rejectedPromise);
     await heroContoller.getHeroes(req, res);
@@ -88,9 +86,8 @@ describe("Herocontroller.getHeroes", () => {
 
 const HERO_ID = "3343jksjd34343334";
 describe("Herocontroller.deleteHero", () => {
-  it("should have deleteHero function", () => {
-    expect(typeof heroContoller.deleteHero).toBe("function");
-  });
+  it("should have deleteHero function",
+     () => { expect(typeof heroContoller.deleteHero).toBe("function"); });
 
   it("should call HeroModel.findByIdAndDelete", async () => {
     req.params.heroId = HERO_ID;
@@ -104,11 +101,12 @@ describe("Herocontroller.deleteHero", () => {
     expect(res.statusCode).toBe(200);
     expect(res._isEndCalled()).toBeTruthy();
     expect(res._getJSONData()).toStrictEqual(newHero);
-    // Value provided by HeroModel(mock) -> Are we getting the same data in response?
+    // Value provided by HeroModel(mock) -> Are we getting the same data in
+    // response?
   });
 
   it("should handle errors", async () => {
-    const errorMessage = { message: "Error in deleting" };
+    const errorMessage = {message : "Error in deleting"};
     const rejectedPromise = Promise.reject(errorMessage);
     HeroModel.findByIdAndDelete.mockReturnValue(rejectedPromise);
     await heroContoller.deleteHero(req, res);
@@ -125,9 +123,8 @@ describe("Herocontroller.deleteHero", () => {
 });
 
 describe("Herocontroller.deleteHero", () => {
-  it("should have deleteHero function", () => {
-    expect(typeof heroContoller.deleteHero).toBe("function");
-  });
+  it("should have deleteHero function",
+     () => { expect(typeof heroContoller.deleteHero).toBe("function"); });
 
   it("should call HeroModel.findByIdAndDelete", async () => {
     req.params.heroId = HERO_ID;
@@ -141,11 +138,12 @@ describe("Herocontroller.deleteHero", () => {
     expect(res.statusCode).toBe(200);
     expect(res._isEndCalled()).toBeTruthy();
     expect(res._getJSONData()).toStrictEqual(newHero);
-    // Value provided by HeroModel(mock) -> Are we getting the same data in response?
+    // Value provided by HeroModel(mock) -> Are we getting the same data in
+    // response?
   });
 
   it("should handle errors", async () => {
-    const errorMessage = { message: "Error in deleting" };
+    const errorMessage = {message : "Error in deleting"};
     const rejectedPromise = Promise.reject(errorMessage);
     HeroModel.findByIdAndDelete.mockReturnValue(rejectedPromise);
     await heroContoller.deleteHero(req, res);
@@ -162,9 +160,8 @@ describe("Herocontroller.deleteHero", () => {
 });
 
 describe("Herocontroller.updateHero", () => {
-  it("should have updateHero function", () => {
-    expect(typeof heroContoller.updateHero).toBe("function");
-  });
+  it("should have updateHero function",
+     () => { expect(typeof heroContoller.updateHero).toBe("function"); });
 
   it("should call HeroModel.findByIdAndUpdate", async () => {
     req.params.heroId = HERO_ID;
@@ -178,11 +175,12 @@ describe("Herocontroller.updateHero", () => {
     expect(res.statusCode).toBe(200);
     expect(res._isEndCalled()).toBeTruthy();
     expect(res._getJSONData()).toStrictEqual(newHero);
-    // Value provided by HeroModel(mock) -> Are we getting the same data in response?
+    // Value provided by HeroModel(mock) -> Are we getting the same data in
+    // response?
   });
 
   it("should handle errors", async () => {
-    const errorMessage = { message: "Error in Updating" };
+    const errorMessage = {message : "Error in Updating"};
     const rejectedPromise = Promise.reject(errorMessage);
     HeroModel.findByIdAndUpdate.mockReturnValue(rejectedPromise);
     await heroContoller.updateHero(req, res);

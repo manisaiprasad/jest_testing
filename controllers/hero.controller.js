@@ -1,4 +1,4 @@
-import { HeroModel } from "../model/hero.model.js";
+import {HeroModel} from "../model/hero.model.js";
 
 async function createHero(req, res) {
   try {
